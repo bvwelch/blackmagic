@@ -1,6 +1,6 @@
 Readme - jc66_coreboard
 
-This is platform is meant to be used with the stm32f103c8t6 minimal boards
+This platform is meant to be used with the stm32f103c8t6 minimal boards
 you find on ebay. Specifically the ones mentioned in this post:
 
   http://www.stm32duino.com/viewtopic.php?f=28&t=117
