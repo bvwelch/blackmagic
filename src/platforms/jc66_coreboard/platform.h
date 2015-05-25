@@ -46,7 +46,7 @@
  *  TMS = PA4 (SWDIO)
  *  TCK = PA5 (SWCLK)
  *  TDO = PA6 (input)
- *  TDI = PA3
+ *  TDI = PA7
  *
  *   RX = PA3 (Virtual COM Port) 
  *   TX = PA2 (Virtual COM Port)
@@ -59,10 +59,10 @@
 #define TCK_PORT	GPIOA
 #define TDO_PORT	GPIOA
 
-#define TDI_PIN		GPIO7
 #define TMS_PIN		GPIO4 /* SWDIO */
 #define TCK_PIN		GPIO5 /* SWCLK */
 #define TDO_PIN		GPIO6
+#define TDI_PIN		GPIO7
 
 #define SWDIO_PORT	TMS_PORT
 #define SWCLK_PORT	TCK_PORT
