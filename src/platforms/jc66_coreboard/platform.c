@@ -62,7 +62,7 @@ void platform_init(void)
 
 	/* toggle USB_DP (PA12) to reset USB port assumes a 1.5k pull up to 3.3v */
 	gpio_set_mode(USB_DP_PORT, GPIO_MODE_OUTPUT_2_MHZ,
-	              GPIO_CNF_OUTPUT_PUSHPULL, USB_DP_PIN);
+	              GPIO_CNF_OUTPUT_OPENDRAIN, USB_DP_PIN);
 	gpio_clear(USB_DP_PORT,USB_DP_PIN);
 	volatile unsigned x = 48000000/4/100; do { ; } while(--x);
 	cdcacm_init();
