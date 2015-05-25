@@ -41,15 +41,15 @@
 
 /* Important pin mappings for STM32 implementation:
  *
- * LED0 = 	PC13	(Red LED : Running)
+ * LED0 = PC13	(Red LED : State)
  *
- * TDI = 	PA3
- * TMS = 	PA4 (SWDIO)
- * TCK = 	PA5 (SWCLK)
- * TDO = 	PA6 (input)
+ *  TMS = PA4 (SWDIO)
+ *  TCK = PA5 (SWCLK)
+ *  TDO = PA6 (input)
+ *  TDI = PA3
  *
- *  RX =    PA3 (Virtual COM Port) 
- *  TX =    PA2 (Virtual COM Port)
+ *   RX = PA3 (Virtual COM Port) 
+ *   TX = PA2 (Virtual COM Port)
  *
  */
 
@@ -64,8 +64,8 @@
 #define TCK_PIN		GPIO5 /* SWCLK */
 #define TDO_PIN		GPIO6
 
-#define SWDIO_PORT 	TMS_PORT
-#define SWCLK_PORT 	TCK_PORT
+#define SWDIO_PORT	TMS_PORT
+#define SWCLK_PORT	TCK_PORT
 #define SWDIO_PIN	TMS_PIN
 #define SWCLK_PIN	TCK_PIN
 
@@ -77,7 +77,7 @@
 #define LED_IDLE_RUN	GPIO13
 
 /* Use PC14 for a "dummy" uart led. So we can observere at least with scope*/
-#define LED_PORT_UART GPIOC
+#define LED_PORT_UART	GPIOC
 #define LED_UART	GPIO14
 
 #define USBUSART_PORT	GPIOA
@@ -121,7 +121,9 @@
 #define USBUSART_IRQ NVIC_USART2_IRQ
 #define USBUSART_CLK RCC_USART2
 #define USBUSART_PORT GPIOA
+#if 0
 #define USBUSART_TX_PIN GPIO2
+#endif
 #define USBUSART_ISR usart2_isr
 #define USBUSART_TIM TIM4
 #define USBUSART_TIM_CLK_EN() rcc_periph_clock_enable(RCC_TIM4)
