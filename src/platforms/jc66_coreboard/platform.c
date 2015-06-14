@@ -47,11 +47,11 @@ void platform_init(void)
 	rcc_periph_clock_enable(RCC_CRC);
 
 	/* Setup GPIO ports */
-	gpio_set_mode(SWDIO_PORT, GPIO_MODE_OUTPUT_50_MHZ,
+	gpio_set_mode(SWDIO_PORT, GPIO_MODE_OUTPUT_10_MHZ,
 	              GPIO_CNF_OUTPUT_PUSHPULL, SWDIO_PIN);
 	gpio_clear(SWDIO_PORT,SWDIO_PIN);
 
-	gpio_set_mode(SWCLK_PORT, GPIO_MODE_OUTPUT_50_MHZ,
+	gpio_set_mode(SWCLK_PORT, GPIO_MODE_OUTPUT_10_MHZ,
 	              GPIO_CNF_OUTPUT_PUSHPULL, SWCLK_PIN);
 	gpio_clear(SWCLK_PORT,SWCLK_PIN);
 
