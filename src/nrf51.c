@@ -108,21 +108,33 @@ bool nrf51_probe(target *t)
 	t->idcode = target_mem_read32(t, NRF51_FICR_CONFIGID) & 0xFFFF;
 
 	switch (t->idcode) {
-	case 0x001D:
-	case 0x002A:
-	case 0x0044:
-	case 0x003C:
+	case 0x001D: /* QFAA */
 	case 0x0020:
+
+	case 0x002A:
 	case 0x002F:
+	case 0x003C:
 	case 0x0040:
+	case 0x0044:
 	case 0x0047:
-	case 0x004D:
-	case 0x0026:
 	case 0x004C:
+	case 0x004D:
 	case 0x0072:
+	case 0x0084:
+	case 0x0085:
+	case 0x0086:
 		t->driver = "Nordic nRF51";
 		target_add_ram(t, 0x20000000, 0x4000);
 		nrf51_add_flash(t, 0x00000000, 0x40000, NRF51_PAGE_SIZE);
+		nrf51_add_flash(t, NRF51_UICR, 0x100, 0x100);
+		target_add_commands(t, nrf51_cmd_list, "nRF51");
+		return true;
+
+	case 0x0026:
+	case 0x0027:
+		t->driver = "Nordic nRF51";
+		target_add_ram(t, 0x20000000, 0x4000);
+		nrf51_add_flash(t, 0x00000000, 0x20000, NRF51_PAGE_SIZE);
 		nrf51_add_flash(t, NRF51_UICR, 0x100, 0x100);
 		target_add_commands(t, nrf51_cmd_list, "nRF51");
 		return true;
